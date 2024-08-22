@@ -29,7 +29,6 @@ let score = 0;
 document.querySelector(".score").textContent = score;
 
 fetch("./json/cards.json")
-
   .then((res) => res.json())
   .then((data) => {
     cards = [...data, ...data];
@@ -78,8 +77,6 @@ function flipCard() {
   }
 
   secondCard = this;
-  score++;
-  document.querySelector(".score").textContent = score;
   lockBoard = true;
 
   checkForMatch();
@@ -88,7 +85,13 @@ function flipCard() {
 function checkForMatch() {
   let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
-  isMatch ? disableCards() : unflipCards();
+  if (isMatch) {
+    disableCards();
+    score++;
+    document.querySelector(".score").textContent = score;
+  } else {
+    unflipCards();
+  }
 }
 
 function disableCards() {
@@ -120,7 +123,6 @@ function restart() {
   gridContainer.innerHTML = "";
   generateCards();
 }
-
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
