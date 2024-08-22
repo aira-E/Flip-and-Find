@@ -1,0 +1,38 @@
+[
+    {
+        "image": "./json/chili.png",
+        "name": "chili"
+    },
+    {
+        "image": "./json/grapes.png",
+        "name": "grapes"
+    },
+    {
+        "image": "./json/lemon.png",
+        "name": "lemon"
+    },
+    {
+        "image": "./json/orange.png",
+        "name": "orange"
+    },
+    {
+        "image": "./json/pineapple.png",
+        "name": "pineapple"
+    },
+    {
+        "image": "./json/strawberry.png",
+        "name": "strawberry"
+    },
+    {
+        "image": "./json/tomato.png",
+        "name": "tomato"
+    },
+    {
+        "image": "./json/watermelon.png",
+        "name": "watermelon"
+    },
+    {
+        "image": "./json/cherries.png",
+        "name": "cherries"
+    }
+]
