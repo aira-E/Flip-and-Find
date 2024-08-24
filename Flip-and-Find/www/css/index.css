@@ -92,3 +92,29 @@ body {
   .card .front {
     transform: rotateY(180deg);
   }
+
+.sections
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.game_section{
+  background-color: #95b3d6;
+  padding: 1px;
+  border-radius: 2px;
+  width: 40%;
+  font-size: larger;
+  display: flex;
+  margin: 5px;
+  align-items: center;
+}
+
+#icon{
+  width: auto;
+  height: 15px;
+  background-color: black;
+  border-radius: 50%;
+  padding: 5px;
+}

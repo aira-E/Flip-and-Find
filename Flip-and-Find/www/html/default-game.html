@@ -7,6 +7,7 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/index.css">
         <title> Flip and Find</title>
     </head>
@@ -14,18 +15,38 @@
         <form action="../index.html">
             <button type="submit">Back</button>
         </form>
+
+        <div class="sections">
+
+            <div class="game_section">
+                <img id="icon" src="../img/3-diff.png">
+                <p><span class="difficulty"></span></p>
+            </div>
+            <div class="game_section">
+                <img id="icon" src="../img//timer.gif">
+                <p><span class="timer"> </span></p>
+            </div>
+            <div class="game_section">
+                <img id="icon" src="../img/star.png">
+                <p><span class="score"></span></p>
+            </div>
+        </div>
+
         <div class="wrapper">
             <div class="app">
                 <div class="grid-container">
                 </div>
-                
-                <p>Score: <span class="score"></span></p>
+
+
+
                 <div class="actions">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
                     <button onclick="restart()">Restart</button>
                 </div>
             </div>
         </div>
         <script src="cordova.js"></script>
         <script src="../js/index.js"></script>
+        <script src="../js/timer.js"></script>
     </body>
 </html>

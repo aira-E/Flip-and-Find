@@ -98,14 +98,6 @@ function resetBoard() {
   [firstCard, secondCard, lockBoard] = [null, null, false];
 }
 
-function restart() {
-  resetBoard();
-  shuffleCards();
-  score = 0;
-  document.querySelector(".score").textContent = score;
-  generateCards();
-}
-
 function onDeviceReady() {
   console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
   document.getElementById('deviceready').classList.add('ready');
