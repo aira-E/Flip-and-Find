@@ -31,10 +31,12 @@ document.querySelector(".score").textContent = score;
 fetch("./json/cards.json")
   .then((res) => res.json())
   .then((data) => {
-    cards = [...data, ...data];
+    // Assuming the JSON contains 8 unique cards
+    cards = [...data, ...data]; // Duplicating the array to have 16 cards (8 pairs)
     shuffleCards();
     generateCards();
   });
+
 
 function shuffleCards() {
   let currentIndex = cards.length,
@@ -50,7 +52,8 @@ function shuffleCards() {
 }
 
 function generateCards() {
-  for (let card of cards) {
+  for (let i = 0; i < 16; i++) { // Ensure only 16 cards are generated
+    const card = cards[i];
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
     cardElement.setAttribute("data-name", card.name);

@@ -1,9 +1,19 @@
 body {
-    min-height: 100vh;
-    min-width: 100vh;
-    background-color: #12181f;
-    color: white;
-  }
+
+  background-color: #12181f;
+  padding: 20px;
+
+
+}
+
+
+.wrapper
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #12181f;
+}
   
   h1 {
       text-align: center;
@@ -34,13 +44,13 @@ body {
     display: grid;
     justify-content: center;
     grid-gap: 16px;
-    grid-template-columns: repeat(6, 140px);
-    grid-template-rows: repeat(2, calc(140px / 2 * 3));
+    grid-template-columns: repeat(4, 80px); 
+    grid-template-rows: repeat(4, calc(80px / 2 * 3)); 
   }
-  
+
   .card {
-    height: calc(140px / 2 * 3);
-    width: 140px;
+    height: calc(80px / 2 * 3);
+    width: 80px;
     border-radius: 10px;
     background-color: white;
     position: relative;
