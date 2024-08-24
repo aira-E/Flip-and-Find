@@ -4,10 +4,6 @@
         "name": "chili"
     },
     {
-        "image": "./json/grapes.png",
-        "name": "grapes"
-    },
-    {
         "image": "./json/lemon.png",
         "name": "lemon"
     },
