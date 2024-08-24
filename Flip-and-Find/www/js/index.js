@@ -8,7 +8,7 @@ let score = 0;
 
 document.querySelector(".score").textContent = score;
 
-fetch("./json/cards.json")
+fetch("../json/cards.json")
   .then((res) => res.json())
   .then((data) => {
     // Assuming the JSON contains 8 unique cards
