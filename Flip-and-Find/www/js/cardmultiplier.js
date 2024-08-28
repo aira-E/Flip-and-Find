@@ -5,19 +5,22 @@ let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
 let score = 0;
-let flips = 0; // New variable to track flips
-const maxFlips = 30; // Maximum allowed flips
+let roundComplete = false;
 
 document.querySelector(".score").textContent = score;
-document.querySelector(".cardflip").textContent = flips; // Display flips count
 
 fetch("../json/cards.json")
   .then((res) => res.json())
   .then((data) => {
-    cards = [...data, ...data]; // Duplicating the array to have 16 cards (8 pairs)
+    if (gridContainer.classList.contains("grid-6x6")) {
+      cards = [...data.slice(0, 18), ...data.slice(0, 18)]; // Ensure 36 cards for 6x6 grid
+    } else {
+      cards = [...data.slice(0, 8), ...data.slice(0, 8)]; // For 4x4 grid, use only 16 cards
+    }
     shuffleCards();
     generateCards();
   });
+
 
 function shuffleCards() {
   let currentIndex = cards.length,
@@ -34,38 +37,30 @@ function shuffleCards() {
 }
 
 function generateCards() {
-  gridContainer.innerHTML = ""; // Clear previous cards if any
-
-  for (let i = 0; i < 16; i++) { // Ensure only 16 cards are generated
-    const card = cards[i];
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card");
-    cardElement.setAttribute("data-name", card.name);
-    cardElement.innerHTML = `
-      <div class="front">
-        <img class="front-image" src=${card.image} />
-      </div>
-      <div class="back"></div>
-    `;
-    gridContainer.appendChild(cardElement);
-    cardElement.addEventListener("click", flipCard);
+    gridContainer.innerHTML = ""; // Clear previous cards if any
+  
+    const cardCount = gridContainer.classList.contains("grid-6x6") ? 36 : 16; // Dynamically decide how many cards
+    for (let i = 0; i < cardCount; i++) {
+      const card = cards[i];
+      const cardElement = document.createElement("div");
+      cardElement.classList.add("card");
+      cardElement.setAttribute("data-name", card.name);
+      cardElement.innerHTML = `
+        <div class="front">
+          <img class="front-image" src=${card.image} />
+        </div>
+        <div class="back"></div>
+      `;
+      gridContainer.appendChild(cardElement);
+      cardElement.addEventListener("click", flipCard);
+    }
   }
-}
+  
+  
 
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
-
-  flips++; // Increment flip count
-  document.querySelector(".cardflip").textContent = flips; // Update flips display
-
-  if (flips >= maxFlips) { // Check if flips exceed maximum allowed
-    setTimeout(() => {
-      alert("Game Over! You've reached the maximum number of flips.");
-      resetGame(); // Reset game or handle game over
-    }, 500);
-    return;
-  }
 
   this.classList.add("flipped");
 
@@ -87,11 +82,11 @@ function checkForMatch() {
     disableCards();
     score++;
     document.querySelector(".score").textContent = score;
-    if (score === 8) { // Check if all pairs are found
-      setTimeout(() => {
-        alert("Congratulations! You've matched all pairs!");
-        resetGame(); // Reset game or handle game won
-      }, 500);
+
+    // Check if the round is complete
+    if (document.querySelectorAll(".card:not(.flipped)").length === 0) {
+      roundComplete = true;
+      setTimeout(expandGrid, 1500); // Expand the grid after a short delay
     }
   } else {
     unflipCards();
@@ -117,14 +112,21 @@ function resetBoard() {
   [firstCard, secondCard, lockBoard] = [null, null, false];
 }
 
-function resetGame() {
-  flips = 0;
-  score = 0;
-  document.querySelector(".score").textContent = score;
-  document.querySelector(".cardflip").textContent = flips;
-  shuffleCards();
-  generateCards();
+function expandGrid() {
+    if (roundComplete) {
+      roundComplete = false;
+      gridContainer.classList.add("grid-6x6"); // Add class to change grid size
+  
+      fetch("../json/cards.json")
+        .then((res) => res.json())
+        .then((data) => {
+          cards = [...data, ...data]; // Assuming `data` has 18 unique cards
+          shuffleCards();
+          generateCards(); // Regenerate the cards
+        });
+    }
 }
+  
 
 function onDeviceReady() {
   console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
