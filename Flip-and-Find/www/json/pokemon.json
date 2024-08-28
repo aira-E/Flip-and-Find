@@ -1,0 +1,34 @@
+[
+    {
+        "image": "../json/1.png",
+        "name": "chili"
+    },
+    {
+        "image": "../json/2.png",
+        "name": "lemon"
+    },
+    {
+        "image": "../json/3.png",
+        "name": "orange"
+    },
+    {
+        "image": "../json/4.png",
+        "name": "pineapple"
+    },
+    {
+        "image": "../json/5.png",
+        "name": "strawberry"
+    },
+    {
+        "image": "../json/6.png",
+        "name": "tomato"
+    },
+    {
+        "image": "../json/7.png",
+        "name": "watermelon"
+    },
+    {
+        "image": "../json/8.png",
+        "name": "cherries"
+    }
+]
