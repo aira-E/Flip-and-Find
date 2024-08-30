@@ -29,24 +29,46 @@ function initSupabase() {
     return supabaseClient;
 }
 
-function listenToEndGame(supabaseClient, difficulty) {
+async function listenToEndGame(supabaseClient, difficulty) {
     // End game is detected by listening when modal (overlay) is shown, 
     // indicating that the game is cleared, over, or exited.
     const modalOverlay = document.querySelector(".custom-alert-overlay");
-    const observer = new MutationObserver((mutationsList) => {
+    const observer = new MutationObserver(async (mutationsList) => {
         for (let mutation of mutationsList) {
             if (mutation.type === 'attributes' && 
                 mutation.attributeName === 'class' &&
                 modalOverlay.classList.contains('shown')) {
-                    saveScore(supabaseClient, score, difficulty)
+                    // Check if top score modal is shown
+                    const score = document.querySelector(".finalscore").innerText;
+                    const modal = document.querySelector(".custom-alert.custom-alert-top-scorer");
+                    if (modal.classList.contains('shown')) {
+                        const continueBtn = modal.querySelector("a");
+                        const nameInput = modal.querySelector("input");
+                        console.log(continueBtn);
+                        continueBtn.addEventListener("click", async () => {
+                            await saveScore(supabaseClient, score, difficulty, nameInput.value);
+                            window.location.href = '../../www/html/default-game.html';
+
+                        });
+                        return;
+                    // If congratulation modal or game over modal
+                    }
+                    else {
+                        await saveScore(supabaseClient, score, difficulty);
+                    }
+                        
             }
         }
     });
     observer.observe(modalOverlay, { attributes: true });
 }
 
-async function saveScore(supabaseClient, newScore, newDifficulty) {
-    console.log(newScore);
+if (hasClasses(modalOverlay, 'shown', 'active')) {
+    console.log('The modal overlay has both the "shown" and "active" classes.');
+}
+
+async function saveScore(supabaseClient, newScore, newDifficulty, name=null) {
+    console.log(newScore, name);
     const { data, error } = await supabaseClient.rpc('record_score', {
         new_score: newScore,
         new_difficulty: newDifficulty,

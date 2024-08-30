@@ -104,7 +104,7 @@ function checkForMatch() {
         const finalScore = document.querySelector(".finalscore").innerText;
         const minHighScore = document.querySelector(".min-high-score").innerText;
         console.log(`${finalScore} TEST ${minHighScore}`);
-        finalScore >= minHighScore ? showHighScoreAlert() : showGameOverAlert();
+        parseInt(finalScore) >= parseInt(minHighScore) ? showHighScoreAlert() : showGameOverAlert();
 
           resetGame(true);
       }, 1000); 
@@ -117,7 +117,7 @@ function checkForMatch() {
         const finalScore = document.querySelector(".finalscore").innerText;
         const minHighScore = document.querySelector(".min-high-score").innerText;
         console.log(finalScore, minHighScore);
-        finalScore >= minHighScore ? showHighScoreAlert() : showCongratulatoryAlert();
+        parseInt(finalScore) >= parseInt(minHighScore) ? showHighScoreAlert() : showCongratulatoryAlert();
     }, 1000); 
   }
 }
