@@ -14,7 +14,9 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-android": "^10.1.2",
-    "cordova-plugin-file": "^7.0.0"
+    "cordova-plugin-file": "^7.0.0",
+    "cordova-sqlite-ext": "^6.0.0",
+    "cordova-sqlite-storage": "^6.1.0"
   },
   "cordova": {
     "platforms": [
@@ -23,7 +25,8 @@
     "plugins": {
       "cordova-plugin-file": {
         "ANDROIDX_WEBKIT_VERSION": "1.4.0"
-      }
+      },
+      "cordova-sqlite-storage": {}
     }
   }
 }

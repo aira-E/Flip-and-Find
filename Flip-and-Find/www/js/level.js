@@ -141,13 +141,18 @@ function nextRound() {
   round++;
   currentJson = jsonFiles[round - 1].file;
   maxFlips = jsonFiles[round - 1].maxFlips;
-  resetGame(false);
+
+  // Only reset the flips count, but keep the score
+  flips = 0;
+  document.querySelector(".cardflip").textContent = flips;
+
+  loadCards(currentJson);
 }
 
 function resetGame(isGameOver) {
   flips = 0;
   if (isGameOver) {
-    score = 0; // Reset score if it's game over
+    score = 0; // Reset score only if it's game over
     round = 1;
     currentJson = jsonFiles[0].file;
     maxFlips = jsonFiles[0].maxFlips;
