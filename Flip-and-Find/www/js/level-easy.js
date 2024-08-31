@@ -86,8 +86,6 @@ function flipCard() {
     }
 
     secondCard = this;
-    score++;
-    document.querySelector(".score").textContent = score;
     flips++;
     document.querySelector(".cardflip").textContent = maxFlips - flips;
     lockBoard = true;
@@ -98,7 +96,14 @@ function flipCard() {
 function checkForMatch() {
     let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
-    isMatch ? disableCards() : unflipCards();
+    if (isMatch) {
+        // Increase score by 10 points for each matched pair
+        score += 10;
+        document.querySelector(".score").textContent = score;
+        disableCards();
+    } else {
+        unflipCards();
+    }
 
     // Check for game over
     if (flips >= maxFlips) {
