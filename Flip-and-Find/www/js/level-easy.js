@@ -94,25 +94,56 @@ function flipCard() {
 }
 
 function checkForMatch() {
-    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
+  let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
-    if (isMatch) {
-        // Increase score by 10 points for each matched pair
-        score += 10;
-        document.querySelector(".score").textContent = score;
-        disableCards();
-    } else {
-        unflipCards();
-    }
+  if (isMatch) {
+      score += 10;
+      document.querySelector(".score").textContent = score;
+      disableCards();
+  } else {
+      unflipCards();
+  }
 
-    // Check for game over
-    if (flips >= maxFlips) {
-        setTimeout(() => {
-            alert("Game Over! You've used all your flips.");
-            resetGame(true);
-        }, 1000); // Give time for the last flip to be processed
-    }
+  // Check for game over
+  if (flips >= maxFlips) {
+      setTimeout(() => {
+          alert("Game Over! You've used all your flips.");
+          resetGame(true);
+      }, 1000); 
+  }
+
+  // Check for congratulatory message
+  if (score >= 80) {
+      setTimeout(() => {
+          showCongratulatoryAlert();
+      }, 1000); // Delay for user experience
+  }
 }
+
+function showCongratulatoryAlert() {
+  // Create a custom alert with a button
+  const message = `
+      <div style="text-align: center; padding: 20px;">
+          <h2>Congratulations!</h2>
+          <p>You've passed the easy level!</p>
+          <a href="../index.html" style="display: inline-block; margin-top: 10px; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">Continue</a>
+      </div>
+  `;
+
+  // Create a modal container
+  const modal = document.createElement('div');
+  modal.classList.add('custom-alert');
+  modal.innerHTML = message;
+
+  // Add to the body
+  document.body.appendChild(modal);
+
+  // Add click listener to close modal
+  modal.addEventListener('click', () => {
+      modal.remove();
+  });
+}
+
 
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
@@ -138,16 +169,17 @@ function resetBoard() {
 function resetGame(isGameOver) {
     flips = 0;
     if (isGameOver) {
-        score = 0; // Reset score only if it's game over
+        score = 0; 
         round = 1;
         currentJson = jsonFiles[0].file;
         maxFlips = jsonFiles[0].maxFlips;
     }
     document.querySelector(".score").textContent = score;
     document.querySelector(".cardflip").textContent = maxFlips;
-    gridContainer.innerHTML = ""; // Clear the grid container
-    loadCards(currentJson); // Reload cards from the current JSON file
+    gridContainer.innerHTML = ""; 
+    loadCards(currentJson); 
 }
+
 
 // On device ready
 function onDeviceReady() {
