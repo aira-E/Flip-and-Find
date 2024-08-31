@@ -35,7 +35,7 @@
         </div>
 
         <!-- FINAL SCORE -->
-        <p><span class="finalscore"></span></p>
+        <!-- <p><span class="finalscore"></span></p> -->
 
         <div class="wrapper">
             <div class="app">
@@ -45,16 +45,25 @@
         </div>
 
         <div class="custom-alert-overlay"></div>
-        <div class="custom-alert-congratulations">
+        <div class="custom-alert custom-alert-congratulations">
             <h2>Congratulations!</h2>
             <p>You've passed the easy level!</p>
             <a href="../html/default-game.html" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">
                 Continue
             </a>
         </div>
-        <div class="custom-alert-gameover">
+        <div class="custom-alert custom-alert-gameover">
             <h2>Game Over!</h2>
             <p>You've used all your flips</p>
+            <a href="../html/default-game.html" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">
+                Continue
+            </a>
+        </div>
+        <div class="custom-alert custom-alert-top-scorer">
+            <h2>You're a top scorer!</h2>
+            <p>Score: <span class="finalscore"></span></p>
+            <label for="name-input" style="display: block; margin-bottom: 8px;">Enter your name:</label>
+            <input autofocus autocapitalize autocomplete placeholder="Anon" maxlength=10 type="text" id="name-input" style="width: 100%;">
             <a href="../html/default-game.html" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">
                 Continue
             </a>
