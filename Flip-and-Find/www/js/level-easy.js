@@ -20,6 +20,16 @@ function disableFormById(formId) {
     }
 }
 
+function enableFormById(formId) {
+  const form = document.getElementById(formId);
+  if (form) {
+      const button = form.querySelector('button');
+      if (button) {
+          button.disabled = false;
+      }
+  }
+}
+
 disableFormById('medium_button');
 disableFormById('difficult_button');
 
@@ -126,7 +136,7 @@ function showCongratulatoryAlert() {
       <div style="text-align: center; padding: 20px;">
           <h2>Congratulations!</h2>
           <p>You've passed the easy level!</p>
-          <a href="../index.html" style="display: inline-block; margin-top: 10px; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">Continue</a>
+          <a href="../html/default-game.html" style="display: inline-block; margin-top: 10px; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">Continue</a>
       </div>
   `;
 
@@ -143,7 +153,7 @@ function showCongratulatoryAlert() {
       modal.remove();
   });
 }
-
+enableFormById('medium_button');
 
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
