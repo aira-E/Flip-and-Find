@@ -12,49 +12,23 @@
         <title> Flip and Find</title>
     </head>
     <body>
-        <form action="../index.html">
+        <form id="back_button" action="../index.html">
             <button type="submit">Back</button>
         </form>
-
-        <div class="sections">
-
-            <!--<div class="game_section">
-                <img id="icon" src="../img/3-diff.png">
-                <p><span class="difficulty"></span></p>
-            </div>-->
-            <!--<div class="game_section">
-                <img id="icon" src="../img//timer.gif">
-                <p><span class="timer"> </span></p>
-            </div>-->
-            <div class="game_section">
-                <img id="icon" src="../img/star.png">
-                <p><span class="score"></span></p>
-            </div>
-            <div class="game_section">
-                <img id="icon" src="../img/flipcard.gif">
-                <p><span class="cardflip"></span></p>
-            </div>
-        </div>
-
-        <div class="wrapper">
-            <div class="app">
-                <div class="grid-container">
-                </div>
-
-
-
-                <div class="actions">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                    <button onclick="restart()">Restart</button>
-                </div>
-            </div>
-        </div>
-        <script src="cordova.js"></script>
-        <!--<script src="../js/index.js"></script>-->
-        <!--<script src="../js/cardmultiplier.js"></script>-->
-        <!--<script src="../js/timer.js"></script>-->
-        <!--<script src="../js/cardflip.js"></script>-->
-        <script src="../js/level.js"></script>
-        <script src="../js/highscore.js"></script>
+        
+        <form id="easy_button" action="../html/easy.html">
+            <button type="submit">Easy</button>
+        </form>
+        
+        <form id="medium_button" action="../html/medium.html">
+            <button type="submit">Medium</button>
+        </form>
+        
+        <form id="difficult_button" action="../html/difficult.html">
+            <button type="submit">Difficult</button>
+        </form>        
     </body>
+    <script src="cordova.js"></script>
+    <script src="../js/level-easy.js"></script>
+    <script src="../js/highscore.js"></script>
 </html>
