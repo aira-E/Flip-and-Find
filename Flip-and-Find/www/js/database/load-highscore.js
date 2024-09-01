@@ -2,18 +2,18 @@
     document.addEventListener(event, onDeviceReady, false);
 });
 
-const highscoreTable = document.querySelector(".highscore-table > tbody");
+const highScoreTable = document.querySelector(".highscore-table > tbody");
 
 function onDeviceReady() {
     const supabaseClient = initSupabase();
-    // console.log(highscoreTable, supabaseClient);
-    // highscoreTable.innerHTML = `<p>${supabaseClient ? "GUMANA" : "AYAW GUMANA"}</p>`;
+    // console.log(highScoreTable, supabaseClient);
+    // highScoreTable.innerHTML = `<p>${supabaseClient ? "GUMANA" : "AYAW GUMANA"}</p>`;
 
 
     (async () => {
         const topScores = await fetchTopScores(supabaseClient);
         renderTopScores(topScores);
-        // highscoreTable.innerHTML = `<p>${topScores.score}</p>`;
+        // highScoreTable.innerHTML = `<p>${topScores.score}</p>`;
 
     }) ();
 }
@@ -40,7 +40,7 @@ async function fetchTopScores(supabaseClient) {
         console.error(error);
     }
     else {
-        // highscoreTable.innerHTML = `<p>${data.score}</p>`;
+        // highScoreTable.innerHTML = `<p>${data.score}</p>`;
         console.log("High Scores Data:", data, data.length);
         return data;
     }
@@ -50,7 +50,7 @@ function renderTopScores(scores) {
     console.log(scores);
     scores.forEach((data, index) => {
         const row = createTableRow(index + 1, data);
-        highscoreTable.appendChild(row);
+        highScoreTable.appendChild(row);
     });
 }
 
