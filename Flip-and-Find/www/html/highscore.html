@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <title>Highscore</title>
 </head>
 <body>
@@ -14,9 +13,7 @@
 
     <div class="highscore-container">
         <h2>HIGH SCORES (PLACEHOLDER)<h2>
-        <div className="highscore-table">
-            <h2>High Scores</h2>
-            <table>
+            <table class="highscore-table">
                 <thead>
                     <tr>
                     <th>Rank</th>
@@ -47,12 +44,11 @@
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
-        </div>
     </div>
 
     <div class="top-scores"></div>
     <script src="cordova.js"></script>
-    <script src="../js/cardflip.js"></script>
+    <script src="../js/cardflip.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../config.js"></script>
     <script src="../js/highscore.js"></script>
