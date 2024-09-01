@@ -158,6 +158,8 @@ enableFormById('medium_button');
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
+    firstCard.classList.add("scored");
+    secondCard.classList.add("scored");
 
     resetBoard();
 }
