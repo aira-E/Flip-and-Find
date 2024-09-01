@@ -6,15 +6,10 @@ const highScoreTable = document.querySelector(".highscore-table > tbody");
 
 function onDeviceReady() {
     const supabaseClient = initSupabase();
-    // console.log(highScoreTable, supabaseClient);
-    // highScoreTable.innerHTML = `<p>${supabaseClient ? "GUMANA" : "AYAW GUMANA"}</p>`;
-
 
     (async () => {
         const topScores = await fetchTopScores(supabaseClient);
         renderTopScores(topScores);
-        // highScoreTable.innerHTML = `<p>${topScores.score}</p>`;
-
     }) ();
 }
 
@@ -38,12 +33,10 @@ async function fetchTopScores(supabaseClient) {
     if (error) {
         console.error("ERROR: High scores not fetched.");
         console.error(error);
+        return;
     }
-    else {
-        // highScoreTable.innerHTML = `<p>${data.score}</p>`;
-        console.log("High Scores Data:", data, data.length);
-        return data;
-    }
+    console.log("High Scores Data:", data, data.length);
+    return data;
 }
 
 function renderTopScores(scores) {
@@ -73,5 +66,4 @@ function createTableRow(rank, data) {
     tdDate.textContent = data.achieved_at;
     tr.appendChild(tdDate);
     return tr;
-
 }
