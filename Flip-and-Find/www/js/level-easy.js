@@ -4,12 +4,11 @@ const gridContainer = document.querySelector(".grid-container");
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
-let score = 0;
+let score = 80;  
 let flips = 0;
 let maxFlips = 50;
 let round = 1;
 
-// Disabling other levels
 function disableFormById(formId) {
     const form = document.getElementById(formId);
     if (form) {
@@ -33,11 +32,10 @@ function enableFormById(formId) {
 disableFormById('medium_button');
 disableFormById('difficult_button');
 
-// Load the json file
 let jsonFiles = [
     { file: "../json/cards.json", maxFlips: 50 },
 ];
-let currentJson = jsonFiles[0].file; // Start with the first JSON file
+let currentJson = jsonFiles[0].file; 
 
 document.querySelector(".score").textContent = score;
 document.querySelector(".cardflip").textContent = maxFlips;
@@ -49,7 +47,7 @@ function loadCards(jsonFile) {
     fetch(jsonFile)
         .then((res) => res.json())
         .then((data) => {
-            cards = [...data, ...data]; // Duplicate the array to create pairs
+            cards = [...data, ...data]; 
             shuffleCards();
             generateCards();
         });
@@ -114,7 +112,6 @@ function checkForMatch() {
       unflipCards();
   }
 
-  // Check for game over
   if (flips >= maxFlips) {
       setTimeout(() => {
           alert("Game Over! You've used all your flips.");
@@ -122,16 +119,15 @@ function checkForMatch() {
       }, 1000); 
   }
 
-  // Check for congratulatory message
-  if (score >= 80) {
-      setTimeout(() => {
-          showCongratulatoryAlert();
-      }, 1000); // Delay for user experience
+  if (score === 80) {
+    enableFormById('medium_button');  
+    setTimeout(() => {
+        showCongratulatoryAlert();
+    }, 1000); 
   }
 }
 
 function showCongratulatoryAlert() {
-  // Create a custom alert with a button
   const message = `
       <div style="text-align: center; padding: 20px;">
           <h2>Congratulations!</h2>
@@ -139,21 +135,16 @@ function showCongratulatoryAlert() {
           <a href="../html/default-game.html" style="display: inline-block; margin-top: 10px; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">Continue</a>
       </div>
   `;
-
-  // Create a modal container
   const modal = document.createElement('div');
   modal.classList.add('custom-alert');
   modal.innerHTML = message;
 
-  // Add to the body
   document.body.appendChild(modal);
 
-  // Add click listener to close modal
   modal.addEventListener('click', () => {
       modal.remove();
   });
 }
-enableFormById('medium_button');
 
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
@@ -189,7 +180,6 @@ function resetGame(isGameOver) {
     gridContainer.innerHTML = ""; 
     loadCards(currentJson); 
 }
-
 
 // On device ready
 function onDeviceReady() {
