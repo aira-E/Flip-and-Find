@@ -7,9 +7,9 @@ let lockBoard = false;
 let score = 0;  
 let flips = 0;
 let maxFlips = 50;
-let round = 1;
+//let round = 1;
 
-function disableFormById(formId) {
+/**function disableFormById(formId) {
     const form = document.getElementById(formId);
     if (form) {
         const button = form.querySelector('button');
@@ -30,10 +30,10 @@ function enableFormById(formId) {
 }
 
 disableFormById('medium_button');
-disableFormById('difficult_button');
+disableFormById('difficult_button');**/
 
 let jsonFiles = [
-    { file: "../json/cards.json", maxFlips: 50 },
+    { file: "../json/cards.json"},
 ];
 let currentJson = jsonFiles[0].file; 
 
@@ -131,7 +131,7 @@ function checkForMatch() {
   }
 
   if (score === 80) {
-    enableFormById('medium_button');  
+    //enableFormById('medium_button');  
     setTimeout(() => {
         showCongratulatoryAlert();
     }, 1000); 
@@ -197,7 +197,7 @@ function resetGame(isGameOver) {
     flips = 0;
     if (isGameOver) {
         score = 0; 
-        round = 1;
+        //round = 1;
         currentJson = jsonFiles[0].file;
         maxFlips = jsonFiles[0].maxFlips;
     }

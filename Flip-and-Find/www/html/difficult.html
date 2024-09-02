@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com https://cdn.jsdelivr.net https://wyffaxwgpjjmvmlqzbgy.supabase.co 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;" >
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -12,7 +12,7 @@
         <title> Flip and Find</title>
     </head>
     <body>
-        <form action="../index.html">
+        <form action="../html/default-game.html">
             <button type="submit">Back</button>
         </form>
 
@@ -38,12 +38,34 @@
                 </div>
             </div>
         </div>
-        <script src="cordova.js"></script>
+
+        <div class="custom-alert-overlay"></div>
+        <div class="custom-alert-congratulations">
+            <h2>Congratulations!</h2>
+            <p>You've passed the difficult level!</p>
+            <a href="../html/default-game.html" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">
+                Continue
+            </a>
+        </div>
+
+        <div class="custom-alert-overlay"></div>
+        <div class="custom-alert-gameover">
+            <h2>Game Over!</h2>
+            <p>You've used all your flips</p>
+            <a href="../html/default-game.html" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">
+                Continue
+            </a>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.21.0/dist/umd/supabase.min.js"></script>        <script src="cordova.js"></script>
         <!--<script src="../js/index.js"></script>-->
         <!--<script src="../js/cardmultiplier.js"></script>-->
         <!--<script src="../js/timer.js"></script>-->
         <!--<script src="../js/cardflip.js"></script>-->
-        <script src="../js/level.js"></script>
-        <script src="../js/highscore.js"></script>
+        <script src="../config.js"></script>
+        <script src="../js/level-difficult.js"></script>
+        <script src="../config.js"></script>
+        <script src="../js/database/record-score.js"></script>
+
     </body>
 </html>
