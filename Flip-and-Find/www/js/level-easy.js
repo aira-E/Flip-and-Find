@@ -4,7 +4,7 @@ const gridContainer = document.querySelector(".grid-container");
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
-let score = 80;  
+let score = 0;  
 let flips = 0;
 let maxFlips = 50;
 let round = 1;
@@ -127,7 +127,7 @@ function checkForMatch() {
   }
 }
 
-function showCongratulatoryAlert() {
+/**function showCongratulatoryAlert() {
   const message = `
       <div style="text-align: center; padding: 20px;">
           <h2>Congratulations!</h2>
@@ -144,7 +144,22 @@ function showCongratulatoryAlert() {
   modal.addEventListener('click', () => {
       modal.remove();
   });
-}
+} **/
+
+function showCongratulatoryAlert() {
+    const modal = document.querySelector('.custom-alert');
+    const overlay = document.querySelector('.custom-alert-overlay');
+
+    // Show the modal and the overlay
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
+
+    // Close the modal when clicking on the overlay
+    overlay.addEventListener('click', () => {
+        modal.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+} 
 
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
