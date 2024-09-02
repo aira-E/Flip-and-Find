@@ -5,31 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com https://cdnjs.cloudflare.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; media-src *; img-src 'self' data: content:;">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/index.css">
     <title>Instructions</title>
 </head>
 <body>
-    <form action="../index.html">
-        <button type="submit">Back</button>
-    </form>
+    <div class="instruction_wrapper">
+    <a href="../index.html" class="icon-button">
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+    </a>    
 
-    <h1> How to Play? </h1>
-    
-    <p> Match the cards before the number of flip cards runs out! </p>
-
-    <h2> Levels </h2>
-    <ul>
-        <li> Level 1: The vegetable cards 
-            <p> You have 50 number of flips to win the game </p>
-        </li>
-
-        <li> Level 2: The pokemon cards 
-            <p> You have 40 number of flips to win the game </p>
-        </li>
-
-        <li> Level 1: The emoji cards 
-            <p> You have 30 number of flips to win the game </p>
-        </li>
-    </ul>
+        <h2 id="instruction-txt"> How to Play? </h2>
+        <p> Match the cards before the number of flip cards runs out! </p>    
+        <div class="game_section_ins_wrapper">
+            <div class="game_section_ins">
+                <img id="icon" src="../img/star.png">
+                <p> Score </p>
+            </div>
+            <div class="game_section_ins">
+                <img id="icon" src="../img/flipcard.gif">
+                <p> Number of card flip left </p>
+            </div>
+        </div>
+        <div class="level_wrapper">
+            <h3> Levels </h3>
+            <a href="../html/carousel.html" class="icon-button">
+                <i class="fa fa-expand" aria-hidden="true"></i>
+            </a>    
+        </div>
+        <h3> Be a top-scorer! </h3>
+        <p>Match the cards with the fewest flips to secure your spot!</p>
+    </div>
 </body>
 </html>

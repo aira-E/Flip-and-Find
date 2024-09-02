@@ -8,33 +8,17 @@ let score = 0;
 let flips = 0;
 let finalScore = 0
 let maxFlips = 20;
-//let round = 1;
 
-/**function disableFormById(formId) {
-    const form = document.getElementById(formId);
-    if (form) {
-        const button = form.querySelector('button');
-        if (button) {
-            button.disabled = true;
-        }
-    }
-}
+const levelBackgrounds = {
+    easy: "../json/basket.jpg",
+    medium: "../json/pokeball.jpg",
+    hard: "../json/omnitrix.jpg"
+};
 
-function enableFormById(formId) {
-  const form = document.getElementById(formId);
-  if (form) {
-      const button = form.querySelector('button');
-      if (button) {
-          button.disabled = false;
-      }
-  }
-}
-
-disableFormById('medium_button');
-disableFormById('difficult_button');**/
+let currentLevel = "hard"; 
 
 let jsonFiles = [
-    { file: "../json/emoji.json"},
+    { file: "../json/aliens.json"},
 ];
 let currentJson = jsonFiles[0].file; 
 
@@ -75,14 +59,15 @@ function generateCards() {
         cardElement.setAttribute("data-name", card.name);
         cardElement.innerHTML = `
             <div class="front">
-                <img class="front-image" src=${card.image} />
+                <img class="front-image" src="${card.image}" />
             </div>
-            <div class="back"></div>
+            <div class="back" style="background-image: url(${levelBackgrounds[currentLevel]});"></div>
         `;
         gridContainer.appendChild(cardElement);
         cardElement.addEventListener("click", flipCard);
     }
 }
+
 
 function flipCard() {
     if (lockBoard) return;
