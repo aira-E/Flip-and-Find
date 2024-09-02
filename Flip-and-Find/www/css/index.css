@@ -120,22 +120,8 @@ body {
 }
 
 
-.custom-alert {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 1000;
-  color: black;
-}
-
 /****** MODAL ******/
-.custom-alert {
+.custom-alert-congratulations, .custom-alert-gameover {
   display: none; 
   position: fixed;
   top: 50%;
@@ -149,20 +135,22 @@ body {
   text-align: center;
 }
 
-.custom-alert h2 {
+.custom-alert-congratulations h2, .custom-alert-gameover h2 {
   margin-bottom: 10px;
+  color: #000000;
 }
 
-.custom-alert p {
+.custom-alert-congratulations p, .custom-alert-gameover p {
   margin-bottom: 20px;
+  color: #000000;
 }
 
-.custom-alert a {
+.custom-alert-congratulations a, .custom-alert-gameover a {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  color: #fff;
+  color: #ffffff;
   background-color: #4CAF50;
   text-decoration: none;
   border-radius: 5px;

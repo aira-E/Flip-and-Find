@@ -113,8 +113,19 @@ function checkForMatch() {
   }
 
   if (flips >= maxFlips) {
-      setTimeout(() => {
-          alert("Game Over! You've used all your flips.");
+    setTimeout(() => {
+        const modal = document.querySelector('.custom-alert-gameover');
+        const overlay = document.querySelector('.custom-alert-overlay');
+
+        modal.style.display = 'block';
+        overlay.style.display = 'block';
+
+        overlay.addEventListener('click', (event) => {
+            if (event.target === overlay) {
+                modal.style.display = 'none';
+                overlay.style.display = 'none';
+            }
+        });
           resetGame(true);
       }, 1000); 
   }
@@ -147,14 +158,12 @@ function checkForMatch() {
 } **/
 
 function showCongratulatoryAlert() {
-    const modal = document.querySelector('.custom-alert');
+    const modal = document.querySelector('.custom-alert-congratulations');
     const overlay = document.querySelector('.custom-alert-overlay');
 
-    // Show the modal and the overlay
     modal.style.display = 'block';
     overlay.style.display = 'block';
 
-    // Close the modal when clicking on the overlay
     overlay.addEventListener('click', () => {
         modal.style.display = 'none';
         overlay.style.display = 'none';
