@@ -6,6 +6,7 @@ let firstCard, secondCard;
 let lockBoard = false;
 let score = 0;  
 let flips = 0;
+let finalScore = 0
 let maxFlips = 20;
 //let round = 1;
 
@@ -39,6 +40,7 @@ let currentJson = jsonFiles[0].file;
 
 document.querySelector(".score").textContent = score;
 document.querySelector(".cardflip").textContent = maxFlips;
+document.querySelector(".finalscore").textContent = finalScore;
 
 // Initial load
 loadCards(currentJson);
@@ -114,6 +116,7 @@ function checkForMatch() {
 
   if (flips >= maxFlips) {
     setTimeout(() => {
+        FinalScore();
         const modal = document.querySelector('.custom-alert-gameover');
         const overlay = document.querySelector('.custom-alert-overlay');
 
@@ -133,6 +136,7 @@ function checkForMatch() {
   if (score === 200) {
     //enableFormById('medium_button');  
     setTimeout(() => {
+        FinalScore();
         showCongratulatoryAlert();
     }, 1000); 
   }
@@ -205,6 +209,12 @@ function resetGame(isGameOver) {
     document.querySelector(".cardflip").textContent = maxFlips;
     gridContainer.innerHTML = ""; 
     loadCards(currentJson); 
+}
+
+function FinalScore() {
+    const flipsLeft = maxFlips - flips;
+    const finalScore = score + (flipsLeft * 10); // Adds 10 points per flip left
+    document.querySelector(".finalscore").textContent = finalScore;
 }
 
 // On device ready

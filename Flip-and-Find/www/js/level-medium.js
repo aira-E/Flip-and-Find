@@ -114,6 +114,7 @@ function checkForMatch() {
 
   if (flips >= maxFlips) {
     setTimeout(() => {
+        FinalScore();
         const modal = document.querySelector('.custom-alert-gameover');
         const overlay = document.querySelector('.custom-alert-overlay');
 
@@ -133,6 +134,7 @@ function checkForMatch() {
   if (score === 160) {
     //enableFormById('medium_button');  
     setTimeout(() => {
+        FinalScore();
         showCongratulatoryAlert();
     }, 1000); 
   }
@@ -199,12 +201,18 @@ function resetGame(isGameOver) {
         score = 0; 
         //round = 1;
         currentJson = jsonFiles[0].file;
-        maxFlips = jsonFiles[0].maxFlips;
+        maxFlips = jSsonFiles[0].maxFlips;
     }
     document.querySelector(".score").textContent = score;
     document.querySelector(".cardflip").textContent = maxFlips;
     gridContainer.innerHTML = ""; 
     loadCards(currentJson); 
+}
+
+function FinalScore() {
+    const flipsLeft = maxFlips - flips;
+    const finalScore = score + (flipsLeft * 10); // Adds 10 points per flip left
+    document.querySelector(".finalscore").textContent = finalScore;
 }
 
 // On device ready
