@@ -14,15 +14,20 @@
         <title> Flip and Find</title>
     </head>
     <body>
-        <form action="html/instructions.html">
-            <button type="submit">How to play</button>
-        </form>
-        <form action="html/default-game.html">
-            <button type="submit">Play!</button>
-        </form>
-        <form action="html/highscore.html">
-            <button type="submit"> Highscore</button>
-        </form>
+        <div class="center_div">
+            <img src="img/logo.png">
+            <form action="html/default-game.html">
+                <button id="play-btn" type="submit">Play!</button>
+            </form>
+            <form action="html/highscore.html">
+                <button type="submit"> Highscore</button>
+            </form>
+
+            <form action="html/instructions.html">
+                <button type="submit">How to play</button>
+            </form>
+        </div>
+
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
     </body>

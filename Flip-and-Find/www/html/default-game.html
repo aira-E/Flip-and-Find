@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com https://cdnjs.cloudflare.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -12,23 +13,30 @@
         <title> Flip and Find</title>
     </head>
     <body>
-        <form id="back_button" action="../index.html">
+        <!--<form id="back_button" action="../index.html">
+            <i class="fa fa-home" aria-hidden="true"></i>
             <button type="submit">Back</button>
-        </form>
+        </form>-->
+
+        <a href="../index.html" class="icon-button">
+            <i class="fa fa-home" aria-hidden="true"></i>
+        </a>        
         
-        <form id="easy_button" action="../html/easy.html">
-            <button type="submit">Easy</button>
-        </form>
-        
-        <form id="medium_button" action="../html/medium.html">
-            <button type="submit">Medium</button>
-        </form>
-        
-        <form id="difficult_button" action="../html/difficult.html">
-            <button type="submit">Difficult</button>
-        </form>        
+        <div class="center_div">
+            <form id="easy_button" action="../html/easy.html">
+                <button type="submit">Easy</button>
+            </form>
+            <form id="medium_button" action="../html/medium.html">
+                <button type="submit">Medium</button>
+            </form>
+            <form id="difficult_button" action="../html/difficult.html">
+                <button type="submit">Difficult</button>
+            </form>  
+        </div>
+      
     </body>
     <script src="cordova.js"></script>
     <script src="../js/level-easy.js"></script>
     <script src="../js/highscore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

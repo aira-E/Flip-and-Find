@@ -7,6 +7,7 @@ let lockBoard = false;
 let score = 0;  
 let flips = 0;
 let maxFlips = 30;
+let finalScore = 0;
 //let round = 1;
 
 /**function disableFormById(formId) {
@@ -39,6 +40,7 @@ let currentJson = jsonFiles[0].file;
 
 document.querySelector(".score").textContent = score;
 document.querySelector(".cardflip").textContent = maxFlips;
+document.querySelector(".finalscore").textContent = finalScore;
 
 // Initial load
 loadCards(currentJson);
