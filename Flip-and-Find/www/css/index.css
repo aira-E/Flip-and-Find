@@ -32,6 +32,7 @@ button{
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  position: static;
 }
 
 .center_div{
@@ -135,15 +136,16 @@ button{
     transform: rotateY(180deg);
   }
 
-.sections
-{
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-}
+.sections {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end; 
+    gap: 10px; 
+  
+  }
 
 .game_section{
-  background-color: #3e4366;
+  background-color:  rgba(107, 166, 255, 0.452);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   width: 40%;
@@ -152,15 +154,24 @@ button{
   margin: 5px;
   align-items: center;
   color: white;
-  padding: 5px;
+  height: fit-content;
+  position: relative;
+}
+
+.game_section p{
+  margin-left: 50px;
 }
 
 #icon{
   width: auto;
-  height: 15px;
-  /*background-color: black;*/
-  border-radius: 50%;
-  padding: 5px;
+  height: 30px;
+  margin: 5px;
+  z-index: 1;
+  background-color: aliceblue;
+  padding: 8px;
+  border-radius: 5px;
+  position: fixed;
+  margin-left: -30px;
 }
 
 
