@@ -16,9 +16,10 @@
     <a href="../index.html" class="icon-button">
         <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
     </a>    
-
-        <h2 id="instruction-txt"> How to Play? </h2>
-        <p> Match the cards before the number of flip cards runs out! </p>    
+        <img id="title" src="../img/instructions.png">
+        <!--<h2 id="instruction-txt"> How to Play? </h2>-->
+        <p> Match the cards before the number of flip cards runs out!
+            Make it with the fewest flips to secure a top spot! </p>    
         <div class="game_section_ins_wrapper">
             <div class="game_section_ins">
                 <img id="icon" src="../img/star.png">
@@ -29,14 +30,105 @@
                 <p> Number of card flip left </p>
             </div>
         </div>
-        <div class="level_wrapper">
+        <!--<div class="level_wrapper">
             <h3> Levels </h3>
             <a href="../html/carousel.html" class="icon-button">
                 <i class="fa fa-expand" aria-hidden="true"></i>
-            </a>    
+            </a>   
+        </div>-->
+        <h3> Levels </h3>
+
+        <div class="carousel_ins_wrapper">
+            <div class="level_ins">
+                <div class="difficulty_ins">
+                    <img id="icon_ins" src="../json/basket.png">
+                    <h5> Easy level </h5>
+                </div>
+                <div class="mechanics">
+                    <h5> The fruit cards   </h5>
+                    <p> You have 50 number of flips to win the game </p>
+                </div>
+            </div>
+    
+            <div class="level_ins">
+                <div class="difficulty_ins">
+                    <img id="icon_ins" src="../json/pokeball.png">
+                    <h5> Medium level </h5>
+                </div>
+                <div class="mechanics">
+                    <h5> The pokemon cards   </h5>
+                    <p> You have 30 number of flips to win the game </p>
+                </div>
+            </div>
+        
+            <div class="level_ins">
+                <div class="difficulty_ins">
+                    <img id="icon_ins" src="../json/omnitrix.png">
+                    <h5> Difficult level </h5>
+                </div>
+                <div class="mechanics">
+                    <h5> The alien cards   </h5>
+                    <p> You have 20 number of flips to win the game </p>
+                </div>
+            </div>
         </div>
+
+        <style>
+            .carousel_ins_wrapper {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .level_ins {
+                flex: 0 0 auto;
+                scroll-snap-align: start;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 20px;
+                border: 1px solid #ddd; /* Optional: to make the divs stand out */
+            }
+
+            .difficulty_ins img {
+                max-width: 50px; /* Adjust based on your design */
+                margin-right: 10px;
+            }
+
+            .difficulty_ins h5 {
+                margin: 0;
+                font-size: 15px;
+            }
+
+            .mechanics h5 {
+                margin: 10px 0 5px 0;
+                font-size: 1em;
+            }
+
+            .mechanics p {
+                margin: 0;
+                font-size: 0.9em;
+            }
+
+            /* Optional: Customize scrollbar for webkit browsers */
+            .carousel_ins_wrapper::-webkit-scrollbar {
+                height: 8px;
+            }
+
+            .carousel_ins_wrapper::-webkit-scrollbar-thumb {
+                background-color: #888;
+                border-radius: 10px;
+            }
+
+            .carousel_ins_wrapper::-webkit-scrollbar-track {
+                background-color: #f1f1f1;
+            }
+
+        </style>
+        <!--
         <h3> Be a top-scorer! </h3>
         <p>Match the cards with the fewest flips to secure your spot!</p>
+    -->
     </div>
 </body>
 </html>

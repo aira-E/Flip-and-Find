@@ -4,7 +4,7 @@ const gridContainer = document.querySelector(".grid-container");
 let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
-let score = 0;  
+let score = 80;  
 let flips = 0;
 let maxFlips = 50;
 let finalScore = 0;

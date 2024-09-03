@@ -2,6 +2,7 @@ body {
   background: linear-gradient(145deg, #392966, #120c42);;
   padding: 20px;
   overflow: hidden;
+  height: 100%;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -139,11 +140,12 @@ button{
     transform: rotateY(180deg);
   }
 
-.sections {
+.sections, .delete {
     display: flex;
     flex-direction: column; 
     align-items: flex-end; 
     gap: 10px; 
+    margin: 20px;
   
   }
 
@@ -196,10 +198,14 @@ button{
 }
 
 /****** INSTRUCTIONS ******/
+.instruction_wrapper{
+  color: #ffffff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .level_wrapper
 {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 10px;
 }
@@ -371,7 +377,7 @@ button{
   font-size: 18px;
   color: #333; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  width: 80%; 
+  width: 60%; 
   position: relative; 
   z-index: 1; 
 }
@@ -390,7 +396,7 @@ button{
   color: white;
   text-align: center;
   position: relative;
-  top: -25px;
+  top: -20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 /****** MODAL ******/
@@ -402,10 +408,11 @@ button{
   transform: translate(-50%, -50%);
   width: 300px;
   padding: 20px;
-  background-color: white;
+  background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   text-align: center;
+  border-radius: 20px;
 }
 
 .custom-alert.shown,
@@ -422,6 +429,7 @@ button{
 .custom-alert label {
   margin-bottom: 20px;
   color: #000000;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .custom-alert a
@@ -431,7 +439,8 @@ button{
   padding: 10px 20px;
   font-size: 16px;
   color: #ffffff;
-  background-color: #4CAF50;
+  background: linear-gradient(180deg, #8A2BE2, #FF00FF); 
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-decoration: none;
   border-radius: 5px;
 }
@@ -445,4 +454,20 @@ button{
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
+}
+
+/*************** HIGH SCORE ********************/
+.highscore-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  height: 100%;
+  text-align: center;
+  gap: 15px;
+}
+
+#title{
+  height: 100px;
 }
