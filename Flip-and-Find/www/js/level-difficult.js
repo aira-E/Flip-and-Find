@@ -102,18 +102,11 @@ function checkForMatch() {
   if (flips >= maxFlips) {
     setTimeout(() => {
         FinalScore();
-        const modal = document.querySelector('.custom-alert-gameover');
-        const overlay = document.querySelector('.custom-alert-overlay');
+        const finalScore = document.querySelector(".finalscore").innerText;
+        const minHighScore = document.querySelector(".min-high-score").innerText;
+        console.log(`${finalScore} TEST ${minHighScore}`);
+        finalScore >= minHighScore ? showHighScoreAlert() : showGameOverAlert();
 
-        modal.classList.add("shown");
-        overlay.classList.add("shown");
-
-        overlay.addEventListener('click', (event) => {
-            if (event.target === overlay) {
-                modal.classList.add("shown");
-                overlay.classList.add("shown");
-            }
-        });
           resetGame(true);
       }, 1000); 
   }
@@ -122,7 +115,10 @@ function checkForMatch() {
     //enableFormById('medium_button');  
     setTimeout(() => {
         FinalScore();
-        showCongratulatoryAlert();
+        const finalScore = document.querySelector(".finalscore").innerText;
+        const minHighScore = document.querySelector(".min-high-score").innerText;
+        console.log(finalScore, minHighScore);
+        finalScore >= minHighScore ? showHighScoreAlert() : showCongratulatoryAlert();
     }, 1000); 
   }
 }
@@ -146,6 +142,15 @@ function checkForMatch() {
   });
 } **/
 
+function showGameOverAlert() {
+    const modal = document.querySelector('.custom-alert-gameover');
+    const overlay = document.querySelector('.custom-alert-overlay');
+
+    modal.classList.add("shown");
+    overlay.classList.add("shown");
+
+}
+
 function showCongratulatoryAlert() {
     const modal = document.querySelector('.custom-alert-congratulations');
     const overlay = document.querySelector('.custom-alert-overlay');
@@ -154,9 +159,17 @@ function showCongratulatoryAlert() {
     overlay.classList.add("shown");
 
     overlay.addEventListener('click', () => {
-        modal.classList.add("shown");
-        overlay.classList.add("shown");
+        modal.classList.remove("shown");
+        overlay.classList.remove("shown");
     });
+}
+
+function showHighScoreAlert() {
+    const modal = document.querySelector('.custom-alert-top-scorer');
+    const overlay = document.querySelector('.custom-alert-overlay');
+
+    modal.classList.add("shown");
+    overlay.classList.add("shown");
 } 
 
 function disableCards() {
