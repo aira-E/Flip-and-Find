@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio Player</title>
+</head>
+<body>
+    <audio id="bgm" src="../audio/bgm.mp3" loop autoplay></audio>
+
+    <script>
+        // Save the state of the audio before navigating away
+        window.addEventListener('beforeunload', function () {
+            const audio = document.getElementById('bgm');
+            if (audio) {
+                localStorage.setItem('bgmCurrentTime', audio.currentTime);
+            }
+        });
+
+        window.addEventListener('load', function () {
+            const audio = document.getElementById('bgm');
+            if (audio) {
+                const savedTime = localStorage.getItem('bgmCurrentTime');
+                if (savedTime !== null) {
+                    audio.currentTime = savedTime;
+                    audio.play();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
