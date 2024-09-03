@@ -5,19 +5,18 @@
 
 function onDeviceReady() {
     const cards = document.querySelectorAll(".grid-container > .card");
-    // const 
-    const numOfFlips = document.querySelectorAll(".game_section .cardflip").length
+    const numOfFlips = document.querySelector(".game_section .cardflip").innerText;
     let difficulty = '';
-    numOfFlips <= 50 ? difficulty = "easy" : 
-    numOfFlips <= 40 ? difficulty = "medium" :
-    numOfFlips >= 30 ? difficulty = "difficult" : null;
+    numOfFlips >= 50 ? difficulty = "easy" : 
+    numOfFlips >= 30 ? difficulty = "medium" :
+    numOfFlips < 30 ? difficulty = "difficult" : null;
 
     const supabaseClient = initSupabase();
     cards.forEach(card => {
         card.addEventListener("click", () => {
             const score = document.querySelector(".game_section .score").textContent;
             console.log(score);
-            shouldSave() ? saveScore(supabaseClient, score) : null;
+            shouldSave() ? saveScore(supabaseClient, score, difficulty) : null;
         })
     });
 }
