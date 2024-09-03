@@ -54,6 +54,10 @@ function createTableRow(rank, data) {
     tdRank.textContent = rank;
     tr.appendChild(tdRank);
 
+    const tdName = document.createElement('td');
+    tdName.textContent = data.name;
+    tr.appendChild(tdName);
+
     const tdScore = document.createElement('td');
     tdScore.textContent = data.score;
     tr.appendChild(tdScore);
