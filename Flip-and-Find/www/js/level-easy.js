@@ -148,13 +148,6 @@ function showGameOverAlert() {
 
     modal.classList.add("shown");
     overlay.classList.add("shown");
-
-    overlay.addEventListener('click', (event) => {
-        if (event.target === overlay) {
-            modal.classList.remove("shown");
-            overlay.classList.remove("shown");
-        }
-    });
 }
 
 function showCongratulatoryAlert() {
@@ -163,11 +156,6 @@ function showCongratulatoryAlert() {
 
     modal.classList.add("shown");
     overlay.classList.add("shown");
-
-    overlay.addEventListener('click', () => {
-        modal.classList.add("shown");
-        overlay.classList.add("shown");
-    });
 }
 
 function showHighScoreAlert() {
@@ -176,11 +164,6 @@ function showHighScoreAlert() {
 
     modal.classList.add("shown");
     overlay.classList.add("shown");
-
-    overlay.addEventListener('click', () => {
-        modal.classList.add("shown");
-        overlay.classList.add("shown");
-    });
 } 
 
 function disableCards() {

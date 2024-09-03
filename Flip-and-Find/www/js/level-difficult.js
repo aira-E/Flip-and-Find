@@ -148,7 +148,6 @@ function showGameOverAlert() {
 
     modal.classList.add("shown");
     overlay.classList.add("shown");
-
 }
 
 function showCongratulatoryAlert() {
@@ -157,11 +156,6 @@ function showCongratulatoryAlert() {
 
     modal.classList.add("shown");
     overlay.classList.add("shown");
-
-    overlay.addEventListener('click', () => {
-        modal.classList.remove("shown");
-        overlay.classList.remove("shown");
-    });
 }
 
 function showHighScoreAlert() {
