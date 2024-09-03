@@ -41,8 +41,8 @@ async function fetchTopScores(supabaseClient) {
 
 function renderMinTopScore(scores) {
   const minHighScore = document.querySelector(".min-high-score");
-  const minTopScore = 0;
-  if (scores.length <= 5) minTopsSores = scores.pop().score;
+  let minTopScore = 0;
+  if (scores.length <= 10) minTopScore = scores.pop().score;
   console.log("MIN HIGH SCORE", minTopScore);
   minHighScore.innerText = minTopScore;
 }

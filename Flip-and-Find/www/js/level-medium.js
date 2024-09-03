@@ -98,7 +98,18 @@ function checkForMatch() {
       unflipCards();
   }
 
-  if (flips >= maxFlips) {
+  if (score === 160) {
+    //enableFormById('medium_button');  
+    setTimeout(() => {
+        FinalScore();
+        const finalScore = document.querySelector(".finalscore").innerText;
+        const minHighScore = document.querySelector(".min-high-score").innerText;
+        console.log(finalScore, minHighScore);
+        parseInt(finalScore) >= parseInt(minHighScore) ? showHighScoreAlert() : showCongratulatoryAlert();
+    }, 1000); 
+  }
+
+  else if (flips >= maxFlips) {
     setTimeout(() => {
         FinalScore();
         const finalScore = document.querySelector(".finalscore").innerText;
@@ -110,16 +121,7 @@ function checkForMatch() {
       }, 1000); 
   }
 
-  if (score === 160) {
-    //enableFormById('medium_button');  
-    setTimeout(() => {
-        FinalScore();
-        const finalScore = document.querySelector(".finalscore").innerText;
-        const minHighScore = document.querySelector(".min-high-score").innerText;
-        console.log(finalScore, minHighScore);
-        parseInt(finalScore) >= parseInt(minHighScore) ? showHighScoreAlert() : showCongratulatoryAlert();
-    }, 1000); 
-  }
+
 }
 
 /**function showCongratulatoryAlert() {
@@ -204,7 +206,7 @@ function resetGame(isGameOver) {
 
 function FinalScore() {
     const flipsLeft = maxFlips - flips;
-    const finalScore = score + (flipsLeft * 10); // Adds 10 points per flip left
+    const finalScore = score + (flipsLeft * 20); // Adds 10 points per flip left
     document.querySelector(".finalscore").textContent = finalScore;
 }
 
