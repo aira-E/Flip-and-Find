@@ -61,9 +61,26 @@ function createTableRow(rank, data) {
     const tdDiff = document.createElement('td');
     tdDiff.textContent = data.difficulty;
     tr.appendChild(tdDiff);
-
-    const tdDate = document.createElement('td');
-    tdDate.textContent = data.achieved_at;
-    tr.appendChild(tdDate);
+    
+    // // Uncomment to show date
+    // const tdDate = document.createElement('td');
+    // tdDate.textContent = convertToPrettyDate(data.achieved_at);
+    // tr.appendChild(tdDate);
     return tr;
+}
+
+function convertToPrettyDate(dateString) {
+    const dateObject = new Date(dateString);
+    
+    const prettyDate = dateObject.toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZoneName: 'short'
+    });
+    return prettyDate;
+    
 }
