@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com https://cdnjs.cloudflare.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; media-src *; img-src 'self' data: content:;">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com https://cdn.jsdelivr.net https://wyffaxwgpjjmvmlqzbgy.supabase.co 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;" >-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/index.css">
+        <title> Flip and Find</title>
+    </head>
+    <body>
+        <!--<form action="../html/default-game.html">
+            <button type="submit">Back</button>
+        </form>-->
+        <iframe src="../html/player.html" style="display:none;" id="audio-frame"></iframe>
+
+        <a href="../html/default-game.html" class="icon-button">
+            <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+        </a>    
+
+        <a href="../html/default-game.html" class="icon-button">
+            <i onclick="restart()" class="fa fa-refresh" aria-hidden="true"></i>
+        </a> 
+
+        <div class="sections">
+            <div class="game_section">
+                <img id="icon" src="../img/star.png">
+                <p><span class="score"></span></p>
+            </div>
+            <div class="game_section">
+                <img id="icon" src="../img/flipcard.gif">
+                <p><span class="cardflip"></span></p>
+            </div>
+        </div>
+        
+        <!-- FINAL SCORE -->
+        <p><span class="finalscore"></span></p>
+        <h1>Upload 8 Photos</h1>
+        <form id="uploadForm">
+            <div id="imageInputs">
+                <!-- Input fields for image uploads -->
+                <input type="file" accept="image/*" name="image1" required><br>
+                <input type="file" accept="image/*" name="image2" required><br>
+                <input type="file" accept="image/*" name="image3" required><br>
+                <input type="file" accept="image/*" name="image4" required><br>
+                <input type="file" accept="image/*" name="image5" required><br>
+                <input type="file" accept="image/*" name="image6" required><br>
+                <input type="file" accept="image/*" name="image7" required><br>
+                <input type="file" accept="image/*" name="image8" required><br>
+            </div>
+            <button type="submit">Upload</button>
+        </form>
+        <div class="wrapper">
+            <div class="app">
+                <div class="grid-container">
+                </div>
+            </div>
+        </div>
+
+
+    
+
+        <div class="custom-alert-overlay"></div>
+        <div class="custom-alert-congratulations">
+            <h2>Congratulations!</h2>
+            <p>You've passed the difficult level!</p>
+            <a href="../html/default-game.html" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">
+                Continue
+            </a>
+        </div>
+
+        <div class="custom-alert-overlay"></div>
+        <div class="custom-alert-gameover">
+            <h2>Game Over!</h2>
+            <p>You've used all your flips</p>
+            <a href="../html/default-game.html" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #4CAF50; text-decoration: none; border-radius: 5px;">
+                Continue
+            </a>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.21.0/dist/umd/supabase.min.js"></script>        <script src="cordova.js"></script>
+        <script src="../config.js"></script>
+        <script src="../js/custom.js"></script>
+        <script src="../config.js"></script>
+        <script src="../js/database/record-score.js"></script>
+        <script src="../upload.js"></script>
+
+    </body>
+</html>
