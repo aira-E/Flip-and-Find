@@ -4,7 +4,6 @@
 
 
 function onDeviceReady() {
-    const cards = document.querySelectorAll(".grid-container > .card");
     const numOfFlips = document.querySelector(".game_section .cardflip").innerText;
     let difficulty = '';
     numOfFlips >= 50 ? difficulty = "easy" : 
@@ -12,13 +11,7 @@ function onDeviceReady() {
     numOfFlips < 30 ? difficulty = "difficult" : null;
 
     const supabaseClient = initSupabase();
-    cards.forEach(card => {
-        card.addEventListener("click", () => {
-            const score = document.querySelector(".game_section .score").textContent;
-            console.log(score);
-            shouldSave() ? saveScore(supabaseClient, score, difficulty) : null;
-        })
-    });
+    listenToEndGame(supabaseClient, difficulty);
 }
 
 function initSupabase() {
@@ -36,14 +29,20 @@ function initSupabase() {
     return supabaseClient;
 }
 
-function shouldSave() {
-    const cards = document.querySelectorAll(".grid-container > .card");
-    const numOfUnscoredCards = document.querySelectorAll(".grid-container > .card.scored");
-    console.log(numOfUnscoredCards.length, cards.length);
-    if (numOfUnscoredCards.length !== cards.length) {
-        return false;
-    }
-    return true;
+function listenToEndGame(supabaseClient, difficulty) {
+    // End game is detected by listening when modal (overlay) is shown, 
+    // indicating that the game is cleared, over, or exited.
+    const modalOverlay = document.querySelector(".custom-alert-overlay");
+    const observer = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && 
+                mutation.attributeName === 'class' &&
+                modalOverlay.classList.contains('shown')) {
+                    saveScore(supabaseClient, score, difficulty)
+            }
+        }
+    });
+    observer.observe(modalOverlay, { attributes: true });
 }
 
 async function saveScore(supabaseClient, newScore, newDifficulty) {
