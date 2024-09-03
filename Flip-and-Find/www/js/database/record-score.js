@@ -45,6 +45,9 @@ async function listenToEndGame(supabaseClient, difficulty) {
                         const continueBtn = modal.querySelector("a");
                         const nameInput = modal.querySelector("input");
                         console.log(continueBtn);
+                        nameInput.addEventListener("input", () => {
+                            nameInput.value = nameInput.value.toUpperCase();
+                        });
                         continueBtn.addEventListener("click", async () => {
                             await saveScore(supabaseClient, score, difficulty, nameInput.value);
                             window.location.href = '../../www/html/default-game.html';
@@ -67,11 +70,13 @@ if (hasClasses(modalOverlay, 'shown', 'active')) {
     console.log('The modal overlay has both the "shown" and "active" classes.');
 }
 
-async function saveScore(supabaseClient, newScore, newDifficulty, name=null) {
-    console.log(newScore, name);
+async function saveScore(supabaseClient, newScore, newDifficulty, newName=null) {
+    (newName === null || newName === "") ? newName = "ANON" : null;
+    console.log(newScore, newName);
     const { data, error } = await supabaseClient.rpc('record_score', {
         new_score: newScore,
         new_difficulty: newDifficulty,
+        new_name: newName,
     });
 
     if (error) {
