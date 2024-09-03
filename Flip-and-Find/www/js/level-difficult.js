@@ -7,7 +7,7 @@ let lockBoard = false;
 let score = 0;  
 let flips = 0;
 let finalScore = 0
-let maxFlips = 2;
+let maxFlips = 20;
 
 const levelBackgrounds = {
     easy: "../json/basket.jpg",
