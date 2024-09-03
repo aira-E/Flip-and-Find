@@ -37,21 +37,11 @@
     </div>
 
     <div class="delete">
-        <a class="icon-button">
-            <i id="delete-highscore" class="fa fa-trash" aria-hidden="true"></i>
+        <a id="delete-highscore" class="icon-button">
+            <i class="fa fa-trash" aria-hidden="true"></i>
         </a>    
     </div>
     <div class="top-scores"></div>
-
-    <script>
-        document.querySelector('#delete-highscore').addEventListener('click', function() {
-        var table = document.querySelector('.highscore-table');
-        var tbody = table.querySelector('tbody');
-        if (tbody) {
-            tbody.remove(); // Remove the tbody element
-        }
-        });
-    </script>
 
     <script src="cordova.js"></script>
     <script src="../js/cardflip.js"></script> 

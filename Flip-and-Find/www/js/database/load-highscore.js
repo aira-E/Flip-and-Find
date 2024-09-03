@@ -88,3 +88,17 @@ function convertToPrettyDate(dateString) {
     return prettyDate;
     
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const deleteButton = document.getElementById("delete-highscore");
+    
+    deleteButton.addEventListener("click", function() {
+        clearHighScoreTable();
+    });
+});
+
+function clearHighScoreTable() {
+    while (highScoreTable.firstChild) {
+        highScoreTable.removeChild(highScoreTable.firstChild);
+    }
+}
