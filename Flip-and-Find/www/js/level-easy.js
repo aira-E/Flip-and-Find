@@ -105,13 +105,13 @@ function checkForMatch() {
         const modal = document.querySelector('.custom-alert-gameover');
         const overlay = document.querySelector('.custom-alert-overlay');
 
-        modal.style.display = 'block';
-        overlay.style.display = 'block';
+        modal.classList.add("shown");
+        overlay.classList.add("shown");
 
         overlay.addEventListener('click', (event) => {
             if (event.target === overlay) {
-                modal.style.display = 'none';
-                overlay.style.display = 'none';
+                modal.classList.remove("shown");
+                overlay.classList.remove("shown");
             }
         });
           resetGame(true);
@@ -150,12 +150,12 @@ function showCongratulatoryAlert() {
     const modal = document.querySelector('.custom-alert-congratulations');
     const overlay = document.querySelector('.custom-alert-overlay');
 
-    modal.style.display = 'block';
-    overlay.style.display = 'block';
+    modal.classList.add("shown");
+    overlay.classList.add("shown");
 
     overlay.addEventListener('click', () => {
-        modal.style.display = 'none';
-        overlay.style.display = 'none';
+        modal.classList.add("shown");
+        overlay.classList.add("shown");
     });
 } 
 

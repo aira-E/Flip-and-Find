@@ -408,6 +408,12 @@ button{
   text-align: center;
 }
 
+.custom-alert-congratulations.shown, 
+.custom-alert-gameover.shown,
+.custom-alert-overlay.shown {
+  display: block;
+} 
+
 .custom-alert-congratulations h2, .custom-alert-gameover h2 {
   margin-bottom: 10px;
   color: #000000;
