@@ -15,6 +15,7 @@
   "devDependencies": {
     "cordova-android": "^10.1.2",
     "cordova-plugin-file": "^7.0.0",
+    "cordova-plugin-media": "^6.1.0",
     "cordova-sqlite-ext": "^6.0.0",
     "cordova-sqlite-storage": "^6.1.0"
   },
@@ -26,7 +27,8 @@
       "cordova-plugin-file": {
         "ANDROIDX_WEBKIT_VERSION": "1.4.0"
       },
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-media": {}
     }
   }
 }

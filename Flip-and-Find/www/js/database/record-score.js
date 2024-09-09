@@ -50,8 +50,8 @@ async function listenToEndGame(supabaseClient, difficulty) {
                         });
                         continueBtn.addEventListener("click", async () => {
                             await saveScore(supabaseClient, score, difficulty, nameInput.value);
-                            window.location.href = '../../www/html/default-game.html';
-
+                            //window.location.href = '../../www/html/default-game.html';
+                            window.location.href = '../../../index.html';
                         });
                         return;
                     // If congratulation modal or game over modal
