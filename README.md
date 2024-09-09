@@ -1,6 +1,7 @@
 # Flip and Find
 
 Flip and Find is a fun and interactive memory card mobile-game built using Cordova. The goal is simple: flip cards and try to find all matching pairs within the fewest number of moves!
+![Graphical User Interface](Flip&Find.png)
 
 ## Features
 
